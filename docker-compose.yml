@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  snowvotes:
+    image: ${DOCKER_REGISTRY-}snowvotes
+    build:
+      context: .
+      dockerfile: SnowVotes/Dockerfile
+    environment:
+        - DbConnectionString=host=db;user id=postgres;password=password;
+  db:
+    image: postgres
+    environment:
+        - POSTGRES_PASSWORD=password
